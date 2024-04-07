@@ -1,14 +1,11 @@
 {
-  "name": "@daviddarnes/component-name",
+  "name": "@cdransf/select-pagination",
   "version": "1.0.0",
-  "description": "A Web Component for…",
-  "main": "component-name.js",
-  "scripts": {
-    "start": "npx http-server ."
-  },
+  "description": "A Web Component for selecting the desired page from a paginated list.",
+  "main": "select-page.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daviddarnes/component-name.git"
+    "url": "git+https://github.com/cransf/select-pagination.git"
   },
   "keywords": [
     "web",
@@ -22,12 +19,12 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/daviddarnes/component-name/issues"
+    "url": "https://github.com/cransf/select-pagination/issues"
   },
   "author": {
-    "name": "David Darnes",
-    "email": "me@daviddarnes.com",
-    "url": "https://darn.es/"
+    "name": "Cory Dransfeldt",
+    "email": "coryd@hey.com",
+    "url": "https://coryd.dev"
   },
-  "homepage": "https://github.com/daviddarnes/component-name#readme"
+  "homepage": "https://github.com/cransf/select-pagination#readme"
 }
