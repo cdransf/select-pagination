@@ -10,6 +10,8 @@ This Web Component allows you to progressively enhance a page count for a pagina
 
 Install via [npm](https://www.npmjs.com/package/@daviddarnes/component-name): `npm install @cdransf/select-pagination`
 
+The component assumes your pagination starts at index `0`, but you may override this using the `baseIndex` attribute.
+
 ## Example usage
 
 Add the `select-pagination.js` to your markup and define the necessary component markup:
