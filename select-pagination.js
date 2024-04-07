@@ -24,8 +24,8 @@ class SelectPagination extends HTMLElement {
     const urlSegments = uri.split('/').filter(segment => segment !== '')
     let pageNumber = parseInt(urlSegments[urlSegments.length - 1]) || 0
 
-    this.control.querySelector(`option[value="${pageNumber.toString()}"]`).setAttribute('selected', 'selected')
     this.control = document.querySelector('select')
+    this.control.querySelector(`option[value="${pageNumber.toString()}"]`).setAttribute('selected', 'selected')
     this.control.addEventListener('change', (event) => {
       pageNumber = event.target.value
 
