@@ -1,11 +1,11 @@
 {
   "name": "@cdransf/select-pagination",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A Web Component for selecting the desired page from a paginated list.",
   "main": "select-page.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cransf/select-pagination.git"
+    "url": "git+https://github.com/cdransf/select-pagination.git"
   },
   "keywords": [
     "web",
@@ -19,12 +19,12 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/cransf/select-pagination/issues"
+    "url": "https://github.com/cdransf/select-pagination/issues"
   },
   "author": {
     "name": "Cory Dransfeldt",
     "email": "coryd@hey.com",
     "url": "https://coryd.dev"
   },
-  "homepage": "https://github.com/cransf/select-pagination#readme"
+  "homepage": "https://github.com/cdransf/select-pagination#readme"
 }
