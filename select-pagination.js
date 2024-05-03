@@ -35,10 +35,15 @@ class SelectPagination extends HTMLElement {
         urlSegments[urlSegments.length - 1] = pageNumber.toString()
       }
 
-      if (pageNumber === this.baseIndex) {
-        window.location.href = `${window.location.protocol}//${window.location.host}/`
-      } else {
+      if (parseInt(pageNumber) === this.baseIndex) {
+        window.location.href = `${window.location.protocol}//${window.location.host}/${urlSegments[0]}`
+      } else if (urlSegments[0] !== '' && !isNaN(urlSegments[urlSegments.length - 1])) {
         window.location = `${window.location.protocol}//${window.location.host}/${urlSegments.join('/')}`
+      } else if (!isNaN(urlSegments[urlSegments.length - 1])) {
+        window.location = `${window.location.protocol}//${window.location.host}/${urlSegments[0]}`
+      } else {
+        window.location = `${window.location.protocol}//${window.location.host}/`
+        console.warn('No valid URL segment or page number found.')
       }
     })
   }
