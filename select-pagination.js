@@ -6,7 +6,7 @@ class SelectPagination extends HTMLElement {
   }
 
   static attr = {
-    baseIndex: 0,
+    baseIndex: 'data-base-index',
   }
 
   get baseIndex() {
@@ -22,30 +22,42 @@ class SelectPagination extends HTMLElement {
 
     const uri = window.location.pathname
     const urlSegments = uri.split('/').filter(segment => segment !== '')
-    let pageNumber = parseInt(urlSegments[urlSegments.length - 1]) || 0
 
-    this.control = document.querySelector('select')
+    let pageNumber = this.extractPageNumber(urlSegments) || 0
+
+    this.control = this.querySelector('select')
     this.control.querySelector(`option[value="${pageNumber.toString()}"]`).setAttribute('selected', 'selected')
     this.control.addEventListener('change', (event) => {
       pageNumber = event.target.value
 
-      if (urlSegments.length === 0 || isNaN(urlSegments[urlSegments.length - 1])) {
-        urlSegments.push(pageNumber.toString())
-      } else {
-        urlSegments[urlSegments.length - 1] = pageNumber.toString()
+      if (!isNaN(pageNumber)) {
+        pageNumber = parseInt(pageNumber)
       }
 
-      if (parseInt(pageNumber) === this.baseIndex) {
-        window.location.href = `${window.location.protocol}//${window.location.host}/${urlSegments[0]}`
-      } else if (urlSegments[0] !== '' && !isNaN(urlSegments[urlSegments.length - 1])) {
-        window.location = `${window.location.protocol}//${window.location.host}/${urlSegments.join('/')}`
-      } else if (!isNaN(urlSegments[urlSegments.length - 1])) {
-        window.location = `${window.location.protocol}//${window.location.host}/${urlSegments[0]}`
-      } else {
-        window.location = `${window.location.protocol}//${window.location.host}/`
-        console.warn('No valid URL segment or page number found.')
-      }
+      const updatedUrlSegments = this.updateUrlSegments(urlSegments, pageNumber)
+      window.location.href = `${window.location.protocol}//${window.location.host}/${updatedUrlSegments.join('/')}`
     })
+  }
+
+  extractPageNumber(segments) {
+    for (let i = segments.length - 1; i >= 0; i--) {
+      const segment = segments[i]
+      if (!isNaN(segment)) {
+        return parseInt(segment)
+      }
+    }
+    return null
+  }
+
+  updateUrlSegments(segments, pageNumber) {
+    if (segments.length > 0 && !isNaN(segments[segments.length - 1])) {
+      segments[segments.length - 1] = pageNumber.toString()
+    } else {
+      segments.push(pageNumber.toString())
+    }
+    if (pageNumber === parseInt(this.baseIndex)) segments.pop()
+
+    return segments;
   }
 }
 
