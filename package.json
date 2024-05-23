@@ -1,6 +1,6 @@
 {
   "name": "@cdransf/select-pagination",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Web Component for selecting the desired page from a paginated list.",
   "main": "select-page.js",
   "repository": {
@@ -23,7 +23,7 @@
   },
   "author": {
     "name": "Cory Dransfeldt",
-    "email": "coryd@hey.com",
+    "email": "hi@coryd.dev",
     "url": "https://coryd.dev"
   },
   "homepage": "https://github.com/cdransf/select-pagination#readme"
