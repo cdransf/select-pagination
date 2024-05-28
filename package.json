@@ -1,6 +1,6 @@
 {
   "name": "@cdransf/select-pagination",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "A Web Component for selecting the desired page from a paginated list.",
   "main": "select-page.js",
   "repository": {
